@@ -365,6 +365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 585419425}
+  - component: {fileID: 585419428}
   - component: {fileID: 585419426}
   - component: {fileID: 585419427}
   m_Layer: 0
@@ -475,6 +476,18 @@ MonoBehaviour:
   _pressTapTimeBounds: {x: 0.05, y: 0.3}
   _pressDoubleTapTime: 0.25
   _pressHeldThreshold: 0.3
+--- !u!114 &585419428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585419424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5db9d944235a35646a304c0a64252730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
