@@ -15,6 +15,7 @@ public class PlayerFSM : StateMachine
     public float dashStopFriction;
     public float dashTime;
     [Header("Fill references")]
+    public GameObject attackHitbox;
     public GameObject playerArt;
     public Camera playerCamera;
 

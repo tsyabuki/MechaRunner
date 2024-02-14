@@ -52,7 +52,7 @@ public class PlayerDefaultState : PlayerState
 
     public override void stateOnAttack()
     {
-        
+        playerFSM.ChangeState(playerFSM.playerAttackState);
     }
 
     public override void stateOnDash(int direction)
