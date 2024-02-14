@@ -4,14 +4,35 @@ using UnityEngine;
 
 public class PlayerTouchInputManager : TouchInputManager
 {
-    private void Awake()
+    //Subscribe to the base touch input manager functions
+    private void Start()
     {
-        
+        tap += OnTap;
+        doubleTap += OnDoubleTap;
+        hold += OnHold;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    //Unsubscribe to the base touch input manager functions
+    private void OnDestroy()
     {
-        
+        tap -= OnTap;
+        doubleTap -= OnDoubleTap;
+        hold -= OnHold;
+    }
+
+    private void OnTap(Vector2 tapPosition)
+    {
+
+    }
+
+    private void OnDoubleTap(Vector2 doubleTapPosition)
+    {
+
+    }
+
+    private void OnHold(Vector2 holdPosition)
+    {
+
     }
 }

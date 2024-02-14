@@ -8,35 +8,59 @@ public class TouchInputManager : MonoBehaviour
 {
     public ContinuousTouchData continuousTouchData;
 
-    // Start is called before the first frame update
-    protected virtual void Start() { }
+    public Action<Vector2> tap;
+    public Action<Vector2> doubleTap;
+    public Action<Vector2> hold;
+
+    [Header("Interaction Settings")]
+    [SerializeField] private Vector2 _pressTapTimeBounds;
+    [SerializeField] private float _pressDoubleTapTime;
+    [SerializeField] private float _pressHeldThreshold;
 
     // Update is called once per frame
     protected virtual void Update() 
     {
+        //Handle touch held code
         if(continuousTouchData.touchIsHeld)
         {
             continuousTouchData.timeTouchHeld += Time.deltaTime;
-            continuousTouchData.timeSinceTouchLast = 0;
         }
-        else
-        {
-            continuousTouchData.timeTouchHeld = 0;
-            continuousTouchData.timeSinceTouchLast += Time.deltaTime;
-        }
+        continuousTouchData.timeSinceTouchLast += Time.deltaTime;
     }
 
     protected virtual void touchPressInputAction(InputAction.CallbackContext context)
     {
-        Debug.Log(context.phase);
         if (context.started)
         {
-            continuousTouchData.touchIsHeld = true;  
+            continuousTouchData.touchIsHeld = true;
         }
         if (context.canceled)
         {
             continuousTouchData.lastTouchPosition = continuousTouchData.currentTouchPosition;
             continuousTouchData.touchIsHeld = false;
+            //Action code
+
+            //Tap action
+            if (continuousTouchData.timeTouchHeld >= _pressTapTimeBounds.x && continuousTouchData.timeTouchHeld <= _pressTapTimeBounds.y)
+            {
+                //Tap action
+                tap?.Invoke(continuousTouchData.currentTouchPosition);
+
+                //Double tap action
+                if (continuousTouchData.timeSinceTouchLast <= _pressDoubleTapTime)
+                {
+                    doubleTap?.Invoke(continuousTouchData.currentTouchPosition);
+                }
+            }
+
+            //Hold action
+            if (continuousTouchData.timeTouchHeld >= _pressHeldThreshold)
+            {
+                hold?.Invoke(continuousTouchData.currentTouchPosition);
+            }
+
+            continuousTouchData.timeTouchHeld = 0;
+            continuousTouchData.timeSinceTouchLast = 0;
         }
     }
 

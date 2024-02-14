@@ -432,6 +432,23 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fac81d28-f341-49e1-abb7-1e005b8cc635
     m_ActionName: Touch/TouchPress[/Device Simulator Touchscreen/press,/Touchscreen/press]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 585419427}
+        m_TargetAssemblyTypeName: TouchInputManager, Assembly-CSharp
+        m_MethodName: touchPositionInputAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4e432eb9-9fe8-4813-ac15-90af98ee891b
+    m_ActionName: Touch/TouchPosition[/Touchscreen/primaryTouch/position,/Device
+      Simulator Touchscreen/primaryTouch/position]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Touch
@@ -449,6 +466,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e22ebc6e1d00246aa5e77b1ce585cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  continuousTouchData:
+    lastTouchPosition: {x: 0, y: 0}
+    currentTouchPosition: {x: 0, y: 0}
+    touchIsHeld: 0
+    timeTouchHeld: 0
+    timeSinceTouchLast: 0
+  _pressTapTimeBounds: {x: 0.05, y: 0.5}
+  _pressDoubleTapTime: 0.25
+  _pressHeldThreshold: 0.5
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
