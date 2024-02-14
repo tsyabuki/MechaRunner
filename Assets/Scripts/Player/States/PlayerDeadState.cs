@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDeadState : State
+public class PlayerDeadState : PlayerState
 {
-    private PlayerFSM _playerFSM;
-
-    PlayerDeadState(PlayerFSM targetPlayerFSM)
+    public PlayerDeadState(PlayerFSM targetPlayerFSM)
     {
-        _playerFSM = targetPlayerFSM;
+        playerFSM = targetPlayerFSM;
     }
 }

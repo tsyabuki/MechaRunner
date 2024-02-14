@@ -27,8 +27,6 @@ public class PlayerTouchInputManager : TouchInputManager
 
     private void OnTap(Vector2 tapPosition)
     {
-        Debug.Log("Attack");
-
         attack?.Invoke();
     }
 

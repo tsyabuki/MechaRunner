@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDashingState : MonoBehaviour
+public class PlayerDashingState : PlayerState
 {
-    private PlayerFSM _playerFSM;
-
-    PlayerDashingState(PlayerFSM targetPlayerFSM)
+    public PlayerDashingState(PlayerFSM targetPlayerFSM)
     {
-        _playerFSM = targetPlayerFSM;
+        playerFSM = targetPlayerFSM;
     }
 }

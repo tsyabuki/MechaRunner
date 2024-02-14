@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttackState : MonoBehaviour
+public class PlayerAttackState : PlayerState
 {
-    private PlayerFSM _playerFSM;
-
-    PlayerAttackState(PlayerFSM targetPlayerFSM)
+    public PlayerAttackState(PlayerFSM targetPlayerFSM)
     {
-        _playerFSM = targetPlayerFSM;
+        playerFSM = targetPlayerFSM;
     }
 }
