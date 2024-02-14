@@ -1350,6 +1350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 969464086}
+  - component: {fileID: 969464089}
   - component: {fileID: 969464088}
   - component: {fileID: 969464087}
   m_Layer: 5
@@ -1420,6 +1421,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969464085}
   m_CullTransparentMesh: 1
+--- !u!114 &969464089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969464085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 536c060eed788244ea8235213f7c137f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1046139753
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,7 +2076,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1471895777}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 969464089}
+        m_TargetAssemblyTypeName: GameOverMenu, Assembly-CSharp
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1471895777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2322,7 +2347,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1859390824}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 969464089}
+        m_TargetAssemblyTypeName: GameOverMenu, Assembly-CSharp
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1859390824
 MonoBehaviour:
   m_ObjectHideFlags: 0
