@@ -10,6 +10,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject countdownObj;
     [SerializeField] private TMP_Text countdownText;
     [SerializeField] private TMP_Text scoreText;
+    [Space]
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip startSound;
+    [SerializeField] private AudioClip dieSound;
 
     //Enables the countdown UI text
     public void enableCountdown()
@@ -55,5 +59,16 @@ public class UIManager : MonoBehaviour
     public void enableGameOver()
     {
         gameOverObj.SetActive(true);
+    }
+
+    //MANAGE THIS ELSEWHERE LATER
+    public void playAudioStartGame()
+    {
+        source.PlayOneShot(startSound, 0.2f);
+    }
+
+    public void playAudioDie()
+    {
+        source.PlayOneShot(dieSound, 0.2f);
     }
 }

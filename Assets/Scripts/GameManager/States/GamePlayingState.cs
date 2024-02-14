@@ -20,6 +20,9 @@ public class GamePlayingState : GameState
 
         //Set the spawn timer
         _spawnTimerCurrent = 0f;
+
+        //REPLACE LATER
+        gmFSM.uim.playAudioStartGame();
     }
 
     public override void stateTick()

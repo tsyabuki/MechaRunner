@@ -15,5 +15,8 @@ public class GameEndState : GameState
 
         //Enable the game over menu when you enter the end state
         gmFSM.uim.enableGameOver();
+
+        //REPLACE LATER
+        gmFSM.uim.playAudioDie();
     }
 }
