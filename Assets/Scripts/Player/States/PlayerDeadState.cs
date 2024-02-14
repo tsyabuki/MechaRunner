@@ -8,4 +8,11 @@ public class PlayerDeadState : PlayerState
     {
         playerFSM = targetPlayerFSM;
     }
+
+    public override void stateEnter()
+    {
+        base.stateEnter();
+        //Disable the player art when the player dies
+        playerFSM.playerArt.SetActive(false);
+    }
 }

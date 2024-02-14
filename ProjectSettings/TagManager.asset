@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SideBarrierL
   - SideBarrierR
+  - GameManager
   layers:
   - Default
   - TransparentFX

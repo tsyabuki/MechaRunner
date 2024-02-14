@@ -9,13 +9,33 @@ public class GameStartState : GameState
         gmFSM = targetGmFSM;
     }
 
+    public override void stateEnter()
+    {
+        base.stateEnter();
+
+        //Enable countdown UI
+        gmFSM.uim.enableCountdown();
+    }
+
     public override void stateTick()
     {
         base.stateTick();
 
+        //Update the countdown UI based on time spent in the state
+        gmFSM.uim.setCountdownPhase(stateDuration, gmFSM.startingCountdown);
+
+        //Leave the state if the starting countdown has ended
         if(stateDuration >= gmFSM.startingCountdown)
         {
             gmFSM.ChangeState(gmFSM.gamePlayingState);
         }
+    }
+
+    public override void stateExit()
+    {
+        base.stateExit();
+
+        //Disable the countdown UI
+        gmFSM.uim.disableCountdown();
     }
 }

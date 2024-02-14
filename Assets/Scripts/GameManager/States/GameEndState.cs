@@ -8,4 +8,12 @@ public class GameEndState : GameState
     {
         gmFSM = targetGmFSM;
     }
+
+    public override void stateEnter()
+    {
+        base.stateEnter();
+
+        //Enable the game over menu when you enter the end state
+        gmFSM.uim.enableGameOver();
+    }
 }
