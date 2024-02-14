@@ -22,6 +22,7 @@ public class PlayerFSM : StateMachine
     public PlayerTouchInputManager ptim { get; private set; }
 
     #region State definition
+    public PlayerBlankState playerBlankState { get; private set; }
     public PlayerDefaultState playerDefaultState { get; private set; }
     public PlayerDashingState playerDashingState { get; private set; }
     public PlayerAttackState playerAttackState { get; private set; }
@@ -45,7 +46,7 @@ public class PlayerFSM : StateMachine
         playerAttackState = new PlayerAttackState(this);
         playerDeadState = new PlayerDeadState(this);
 
-        CurrentState = playerDefaultState;
+        CurrentState = playerBlankState;
         #endregion
 
         #region Subscribing to the input manager

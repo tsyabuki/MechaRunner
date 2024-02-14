@@ -32,6 +32,4 @@ public class StateMachine : MonoBehaviour
         CurrentState = newState;
         CurrentState?.stateEnter();
     }
-
-
 }
