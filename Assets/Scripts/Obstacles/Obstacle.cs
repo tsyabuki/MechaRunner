@@ -32,5 +32,11 @@ public class Obstacle : MonoBehaviour
             GameManagerFSM _gmFSM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerFSM>();
             _gmFSM.ChangeState(_gmFSM.gameEndState);
         }
+
+        //Despawn if it collides with the despawner
+        if(other.CompareTag("Despawner"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

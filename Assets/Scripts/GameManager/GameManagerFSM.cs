@@ -9,6 +9,7 @@ public class GameManagerFSM : StateMachine
 
     [Header("Starting Settings")]
     public float startingCountdown;
+    public float spawnTimerMax;
     [Header("Fill references")]
     public PlayerFSM playerFSM;
 

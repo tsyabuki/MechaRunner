@@ -6,6 +6,7 @@ public class Spawner : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float _defaultSpawnedObjectSpeed;
+    [SerializeField] private float _currentSpawnFrequency;
     [SerializeField] private List<SpawnData> _phase1SpawnList;
     [Header("Fill references")]
     [SerializeField] private GameManagerFSM _gmFSM;
@@ -13,11 +14,6 @@ public class Spawner : MonoBehaviour
     private void Awake()
     {
         _gmFSM.spawnObstacle += SpawnObstacle;
-    }
-
-    private void Start()
-    {
-        SpawnObstacle(1);
     }
 
     private void OnDestroy()
@@ -31,11 +27,16 @@ public class Spawner : MonoBehaviour
     /// <param name="phase">Currently does nothing. If I want to make spawns phase dependent, then I'll add that functionality here</param>
     private void SpawnObstacle(int phase)
     {
-        //Select a random object from the spawn list and spawn it
-        int _selectedObstacle = Random.Range(0, _phase1SpawnList.Count);
-        GameObject SpawnedObstacleGO = Instantiate(_phase1SpawnList[_selectedObstacle].spawnObject, transform.position + new Vector3(_phase1SpawnList[_selectedObstacle].spawnPositionHorizontal, 0f, 0f), Quaternion.identity);
-        Obstacle SpawnedObstacleClass = SpawnedObstacleGO.GetComponent<Obstacle>();
-        SpawnedObstacleClass.speed = _defaultSpawnedObjectSpeed;
+        //Checks first to see whether or not it should even spawn an object
+        float _frequencyCheck = Random.Range(0f, 1f);
+        if(_frequencyCheck < _currentSpawnFrequency)
+        {
+            //Select a random object from the spawn list and spawn it
+            int _selectedObstacle = Random.Range(0, _phase1SpawnList.Count);
+            GameObject SpawnedObstacleGO = Instantiate(_phase1SpawnList[_selectedObstacle].spawnObject, transform.position + new Vector3(_phase1SpawnList[_selectedObstacle].spawnPositionHorizontal, 0f, 0f), Quaternion.identity);
+            Obstacle SpawnedObstacleClass = SpawnedObstacleGO.GetComponent<Obstacle>();
+            SpawnedObstacleClass.speed = _defaultSpawnedObjectSpeed;
+        }
     }
 
     private void OnDrawGizmos()
