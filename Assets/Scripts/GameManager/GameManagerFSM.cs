@@ -8,6 +8,8 @@ public class GameManagerFSM : StateMachine
     public Action<int> spawnObstacle;
 
     [Header("Starting Settings")]
+    public float score = 0f;
+    public float scoreSpeed;
     public float startingCountdown;
     public float spawnTimerMax;
     [Header("Fill references")]

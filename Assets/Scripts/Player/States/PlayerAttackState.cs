@@ -15,8 +15,6 @@ public class PlayerAttackState : PlayerState
     {
         base.stateEnter();
 
-        Debug.Log("Start Attack");
-
         playerFSM.moveSpeedCurrent = 0f;
         playerFSM.movePlayer();
     }

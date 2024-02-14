@@ -34,5 +34,9 @@ public class GamePlayingState : GameState
             gmFSM.spawnObstacle?.Invoke(1);
             _spawnTimerCurrent = 0f;
         }
+
+        //Add to your score
+        gmFSM.score += Time.deltaTime * gmFSM.scoreSpeed;
+        gmFSM.uim.setScoreUI((int)gmFSM.score);
     }
 }

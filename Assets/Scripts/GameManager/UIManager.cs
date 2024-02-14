@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gameOverObj;
     [SerializeField] private GameObject countdownObj;
     [SerializeField] private TMP_Text countdownText;
+    [SerializeField] private TMP_Text scoreText;
 
     //Enables the countdown UI text
     public void enableCountdown()
@@ -44,6 +45,11 @@ public class UIManager : MonoBehaviour
         {
             countdownText.text = "GO!";
         }
+    }
+
+    public void setScoreUI(int score)
+    {
+        scoreText.text = "Score: " + score;
     }
 
     public void enableGameOver()
