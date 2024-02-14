@@ -12,6 +12,7 @@ public class PlayerFSM : StateMachine
     public float moveStopFriction;
     [Space]
     public float dashSpeed;
+    public float dashStopFriction;
     public float dashTime;
     [Header("Fill references")]
     public Camera playerCamera;

@@ -32,7 +32,7 @@ public class PlayerDefaultState : PlayerState
         {
             if(playerFSM.moveSpeedCurrent != 0f)
             {
-                //Apply friction if the player isn't moving
+                //Apply friction if the player isn't moving. Make sure that fricton can never go the same direciton as movement
                 float _directionTraveling = Mathf.Sign(playerFSM.moveSpeedCurrent);
                 float _newSpeed = playerFSM.moveSpeedCurrent - (_directionTraveling * playerFSM.moveStopFriction * Time.fixedDeltaTime);
 
@@ -50,27 +50,14 @@ public class PlayerDefaultState : PlayerState
         playerFSM.movePlayer();
     }
 
-    public override void stateOnCollisionStay(Collision collision)
-    {
-        //If the player collides with the side barriers, reset the movespeed
-        if (collision.collider.gameObject.CompareTag("SideBarrierL") && playerFSM.moveSpeedCurrent < 0)
-        {
-            playerFSM.moveSpeedCurrent = 0;
-        }
-
-        if (collision.collider.gameObject.CompareTag("SideBarrierR") && playerFSM.moveSpeedCurrent > 0)
-        {
-            playerFSM.moveSpeedCurrent = 0;
-        }
-    }
-
     public override void stateOnAttack()
     {
-        Debug.Log("Player attack");
+        
     }
 
     public override void stateOnDash(int direction)
     {
-        Debug.Log("Player dash " + direction);
+        playerFSM.playerDashingState.direction = direction;
+        playerFSM.ChangeState(playerFSM.playerDashingState);
     }
 }

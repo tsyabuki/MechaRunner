@@ -475,8 +475,8 @@ MonoBehaviour:
     touchIsHeld: 0
     timeTouchHeld: 0
     timeSinceTouchLast: 0
-  _pressTapTimeBounds: {x: 0.05, y: 0.3}
-  _pressDoubleTapTime: 0.25
+  _pressTapTimeBounds: {x: 0, y: 0.15}
+  _pressDoubleTapTime: 0.2
   _pressHeldThreshold: 0.3
 --- !u!114 &585419428
 MonoBehaviour:
@@ -492,9 +492,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeedCurrent: 0
   moveSpeedMax: 10
-  moveAcceleration: 20
-  dashSpeed: 15
-  dashTime: 0
+  moveAcceleration: 30
+  moveStopFriction: 40
+  dashSpeed: 12
+  dashStopFriction: 20
+  dashTime: 0.5
   playerCamera: {fileID: 330585545}
 --- !u!54 &585419429
 Rigidbody:
