@@ -43,13 +43,15 @@ public class TouchInputManager : MonoBehaviour
             //Tap action
             if (continuousTouchData.timeTouchHeld >= _pressTapTimeBounds.x && continuousTouchData.timeTouchHeld <= _pressTapTimeBounds.y)
             {
-                //Tap action
-                tap?.Invoke(continuousTouchData.currentTouchPosition);
-
                 //Double tap action
                 if (continuousTouchData.timeSinceTouchLast <= _pressDoubleTapTime)
                 {
                     doubleTap?.Invoke(continuousTouchData.currentTouchPosition);
+                }
+                //Execute the tap action if it isn't a double tap
+                else
+                {
+                    tap?.Invoke(continuousTouchData.currentTouchPosition);
                 }
             }
 

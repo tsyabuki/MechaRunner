@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerTouchInputManager : TouchInputManager
 {
+    public Action<int> dodge;
+    public Action attack;
+
     //Subscribe to the base touch input manager functions
     private void Start()
     {
@@ -23,12 +27,21 @@ public class PlayerTouchInputManager : TouchInputManager
 
     private void OnTap(Vector2 tapPosition)
     {
+        Debug.Log("Attack");
 
+        attack?.Invoke();
     }
 
     private void OnDoubleTap(Vector2 doubleTapPosition)
     {
-
+        if (doubleTapPosition.x < Screen.width/2)
+        {
+            dodge?.Invoke(-1);
+        }
+        else
+        {
+            dodge?.Invoke(1);
+        }
     }
 
     private void OnHold(Vector2 holdPosition)

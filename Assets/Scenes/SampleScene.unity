@@ -472,9 +472,9 @@ MonoBehaviour:
     touchIsHeld: 0
     timeTouchHeld: 0
     timeSinceTouchLast: 0
-  _pressTapTimeBounds: {x: 0.05, y: 0.5}
+  _pressTapTimeBounds: {x: 0.05, y: 0.3}
   _pressDoubleTapTime: 0.25
-  _pressHeldThreshold: 0.5
+  _pressHeldThreshold: 0.3
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
