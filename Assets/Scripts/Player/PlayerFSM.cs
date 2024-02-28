@@ -19,6 +19,9 @@ public class PlayerFSM : StateMachine
     public Collider playerHurtbox;
     public GameObject playerArt;
     public Camera playerCamera;
+    public AudioSource playerAudio;
+    public AudioClip meleeSound;
+    public AudioClip dashSound;
 
     //All components to obtain on awake
     public Rigidbody rb { get; private set; }

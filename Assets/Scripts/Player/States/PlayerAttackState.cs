@@ -34,6 +34,9 @@ public class PlayerAttackState : PlayerState
         else if (stateDuration > _cancelWindow)
         {
             playerFSM.attackHitbox.SetActive(true);
+            playerFSM.playerAudio.pitch = 2;
+            playerFSM.playerAudio.PlayOneShot(playerFSM.meleeSound, 0.05f);
+            playerFSM.playerAudio.pitch = 1;
         }
     }
 

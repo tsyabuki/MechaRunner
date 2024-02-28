@@ -16,6 +16,10 @@ public class PlayerDashingState : PlayerState
         base.stateEnter();
 
         playerFSM.moveSpeedCurrent = playerFSM.dashSpeed * direction;
+
+        playerFSM.playerAudio.pitch = 2;
+        playerFSM.playerAudio.PlayOneShot(playerFSM.dashSound, 0.05f);
+        playerFSM.playerAudio.pitch = 1;
     }
 
     public override void stateFixedTick()
