@@ -18,12 +18,12 @@ public class UIManager : MonoBehaviour
     //Enables the countdown UI text
     public void enableCountdown()
     {
-        countdownObj.SetActive(true);
+        countdownObj?.SetActive(true);
     }
 
     public void disableCountdown()
     {
-        countdownObj.SetActive(false);
+        countdownObj?.SetActive(false);
     }
 
     /// <summary>

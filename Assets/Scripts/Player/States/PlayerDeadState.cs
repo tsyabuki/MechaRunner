@@ -14,5 +14,6 @@ public class PlayerDeadState : PlayerState
         base.stateEnter();
         //Disable the player art when the player dies
         playerFSM.playerArt.SetActive(false);
+        playerFSM.playerHurtbox.enabled = false;
     }
 }
